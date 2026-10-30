@@ -15,52 +15,44 @@
 </p>
 
 <p align="center">
-  Built for <a href="https://evoxim.com">Evoxim Communication Collective</a> (Montreal, Canada)<br>
-  A cinematic, interactive platform that turns Evoxim's facilitation services into a self-service digital experience.
+  A cinematic, interactive platform that turns facilitation services into a self-service digital experience.<br>
+  Built with Three.js, GSAP, WebGL, and a deterministic AI recommendation engine.
 </p>
+
+---
+
+## Demo
+
+https://github.com/user-attachments/assets/REPLACE-WITH-YOUR-VIDEO-ID
+
+> **[Try it live](https://evoxim-interactive-studio.vercel.app)** — scroll through the full experience, configure a workshop, and generate a PDF proposal.
 
 ---
 
 ## What It Does
 
-Evoxim helps organizations fix broken meeting culture through game-based facilitation. This platform lets potential clients **configure their needs, see a live recommendation, and generate a branded PDF proposal** — all in under 60 seconds, without ever speaking to a sales rep.
+Organizations struggle with broken meeting culture — a few voices dominate while others disengage. This platform lets potential clients **configure their needs, see a live recommendation, and generate a branded PDF proposal** — all in under 60 seconds.
 
-### The Problem
-Evoxim's founder Maxime Dufour runs workshops that transform how teams communicate. But explaining what a "Creative Formula" session looks like — and why it works — is hard to do on a static website.
+### How It Works
 
-### The Solution
-An interactive simulator where clients experience the recommendation process themselves:
-
-1. **Set team size** (5 to 250+ participants)
-2. **Choose a formula** (Exploration, Integration, Event formats)
-3. **Select objectives** (reduce mental load, unlock collective intelligence, etc.)
-4. **Describe their situation** in free text
-5. **Get an AI-generated recommendation** with programme structure, game mechanics breakdown, and a projected Collective Intelligence Index
-6. **Download a branded PDF proposal** ready to share with their HR committee
+1. **Set team size** — slider from 5 to 250+ participants, auto-classifies group type
+2. **Choose a formula** — Exploration, Integration, or Event formats with detailed breakdowns
+3. **Select objectives** — reduce mental load, unlock collective intelligence, de-escalate tensions
+4. **Describe the situation** — free text input for context
+5. **Get an AI recommendation** — programme structure, game mechanics breakdown, Collective Intelligence Index
+6. **Download a PDF proposal** — branded, bilingual, executive-ready
 
 ---
 
 ## Screenshots
 
-### Cinematic Hero with WebGL Particles
-![Hero Section](screenshots/hero.jpg)
-> 3D particle system built with Three.js and custom GLSL shaders. Particles morph between geometric shapes as the user scrolls.
+| Hero + WebGL Particles | Interactive Configurator |
+|:---:|:---:|
+| ![Hero](screenshots/hero.jpg) | ![Configurator](screenshots/configurator.jpg) |
 
-### Scroll-Driven Manifesto
-![Manifesto](screenshots/manifesto.jpg)
-> GSAP ScrollTrigger reveals the Creative Formula philosophy with parallax text and particle animations.
-
-### Interactive Configurator
-![Configurator](screenshots/configurator.jpg)
-> Multi-step configurator: team size slider, formula cards, priority objectives, experience type selection. Every choice dynamically updates the recommendation engine.
-
-### Live Results Dashboard
-![Dashboard](screenshots/dashboard.jpg)
-> Real-time programme envelope: sessions, hours, parallel circles, facilitators. Game mechanics breakdown with percentage bars across 5 game families (Micro, Small, Big, Macro, Flashes).
-
-### Collective Intelligence Index
-![CI Index](screenshots/ci-index.jpg)
-> Projected CI score with before/after comparison matrix across 6 dimensions: airtime distribution, clarity of decisions, mental load, psychological safety, meeting length, and follow-through.
+| Live Results Dashboard | Collective Intelligence Index |
+|:---:|:---:|
+| ![Dashboard](screenshots/dashboard.jpg) | ![CI Index](screenshots/ci-index.jpg) |
 
 ---
 
@@ -75,31 +67,30 @@ An interactive simulator where clients experience the recommendation process the
 | **PDF Generation** | jsPDF client-side rendering with branded templates |
 | **Internationalization** | Static i18n dictionary (EN/FR) with instant switching |
 | **Audio** | Web Audio API for tactile interaction sounds |
-| **State Management** | Single STATE object pattern with reactive updates |
-| **Architecture** | Single-file HTML (~360KB, zero dependencies on build tools) |
+| **Architecture** | Single-file HTML (~360KB, zero build dependencies) |
 | **Deployment** | Vercel (static) |
-| **Backend** | FastAPI (Python) for lead storage and analytics |
+| **Backend** | FastAPI (Python) — lead storage, proposals, analytics |
 
 ## Architecture
 
 ```
-index.html (360KB)          <- Main deliverable: everything in one file
-  |-- Three.js WebGL        <- 3D particle morphing system
-  |-- GSAP ScrollTrigger    <- Scroll-driven animations
-  |-- Canvas2D GenArt        <- Procedural background art
-  |-- Configurator UI        <- Multi-step form engine
-  |-- Recommendation Engine  <- Deterministic service matcher
-  |-- PDF Generator          <- jsPDF branded proposals
-  |-- I18N System            <- EN/FR bilingual support
-  |-- Web Audio              <- Tactile sound effects
-  
-backend/                     <- FastAPI REST API
-  |-- leads                  <- Lead capture & storage
-  |-- proposals              <- Proposal generation
-  |-- analytics              <- Usage tracking
-  |-- recommendation         <- Server-side matching
+index.html (360KB)            <- Everything in one file
+  ├── Three.js WebGL          <- 3D particle morphing system
+  ├── GSAP ScrollTrigger      <- Scroll-driven animations
+  ├── Canvas2D GenArt          <- Procedural background art
+  ├── Configurator UI          <- Multi-step form engine
+  ├── Recommendation Engine    <- Deterministic service matcher
+  ├── PDF Generator            <- jsPDF branded proposals
+  ├── I18N System              <- EN/FR bilingual support
+  └── Web Audio                <- Tactile sound effects
 
-admin.html                   <- Admin dashboard (cinematic UI)
+backend/                       <- FastAPI REST API
+  ├── leads                    <- Lead capture & storage
+  ├── proposals                <- Proposal generation
+  ├── analytics                <- Usage tracking
+  └── recommendation           <- Server-side matching
+
+admin.html                     <- Admin dashboard
 ```
 
 ## Key Features
@@ -108,13 +99,11 @@ admin.html                   <- Admin dashboard (cinematic UI)
 - **Fully Bilingual** — EN/FR toggle switches all content instantly
 - **Offline-Capable** — Recommendation engine runs entirely client-side
 - **PDF Export** — One-click branded executive proposals
-- **Responsive** — Works on desktop, tablet, and mobile
+- **Responsive** — Desktop, tablet, and mobile
 - **Cinematic UX** — WebGL particles, scroll animations, generative art, spatial audio
-- **Privacy-First** — All computation happens in the browser, no data sent to third parties
+- **Privacy-First** — All computation in the browser, no data sent to third parties
 
 ## Getting Started
-
-The main site is a single HTML file — just open it:
 
 ```bash
 # Clone the repo
@@ -141,5 +130,5 @@ uvicorn app.main:app --reload
 ---
 
 <p align="center">
-  Built by <a href="https://github.com/Majeedkhan05">Majeed Khan</a> for <a href="https://evoxim.com">Evoxim Communication Collective</a>
+  Built by <a href="https://github.com/Majeedkhan05">Majeed Khan</a>
 </p>
